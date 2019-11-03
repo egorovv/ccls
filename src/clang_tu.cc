@@ -69,7 +69,8 @@ static Pos decomposed2LineAndCol(const SourceManager &sm, std::pair<FileID, unsi
         while (i < p.size() && (uint8_t)p[i] >= 128 && (uint8_t)p[i] < 192)
           i++;
   }
-  return {(uint16_t)std::min<int>(l, UINT16_MAX), (int16_t)std::min<int>(c, INT16_MAX)};
+  return { (Pos::LineNumType)std::min<int>(l, Pos::lineNumMax),
+          (int16_t)std::min<int>(c, INT16_MAX)};
 }
 
 Range fromCharSourceRange(const SourceManager &sm, const LangOptions &lang, CharSourceRange csr, FileID *fid) {

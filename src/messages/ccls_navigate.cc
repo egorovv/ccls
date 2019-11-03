@@ -35,7 +35,7 @@ void MessageHandler::ccls_navigate(JsonReader &reader, ReplyOnce &reply) {
   if (wf->index_lines.size())
     if (auto line = wf->getIndexPosFromBufferPos(ls_pos.line, &ls_pos.character, false))
       ls_pos.line = *line;
-  Pos pos{(uint16_t)ls_pos.line, (int16_t)ls_pos.character};
+  Pos pos{(Pos::LineNumType)ls_pos.line, (int16_t)ls_pos.character};
 
   Maybe<Range> res;
   switch (param.direction[0]) {

@@ -326,8 +326,9 @@ static std::unordered_map<SymbolIdx, CclsSemanticHighlightSymbol> computeSemanti
       // If not, do not publish the semantic highlight.
       // E.g. copy-initialization of constructors should not be highlighted
       // but we still want to keep the range for jumping to definition.
-      std::string_view concise_name = detailed_name.substr(0, detailed_name.find('<'));
-      uint16_t start_line = sym.range.start.line;
+      std::string_view concise_name =
+          detailed_name.substr(0, detailed_name.find('<'));
+      Pos::LineNumType start_line = sym.range.start.line;
       int16_t start_col = sym.range.start.column;
       if (start_line >= wfile->index_lines.size())
         continue;
