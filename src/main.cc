@@ -136,3 +136,12 @@ int main(int argc, char **argv) {
 
   return 0;
 }
+
+_LIBCPP_BEGIN_NAMESPACE_STD
+void __libcpp_verbose_abort (const char *fmt, ...) {
+    va_list list;
+    va_start(list, fmt);
+    //abort_message("%s", fmt);
+    va_end(list);
+}
+_LIBCPP_END_NAMESPACE_STD
