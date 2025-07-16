@@ -8,6 +8,8 @@
 #include <stdint.h>
 #include <string>
 
+#define LINENUM_32BIT yes
+
 namespace ccls {
 struct Pos {
   #ifdef LINENUM_32BIT
